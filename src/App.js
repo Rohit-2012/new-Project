@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {Comp1} from './Components/component1'
+import { Comp2 } from './Components/component2';
+import { Comp3 } from './Components/component3';
+import { useState } from 'react';
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Comp1/>
+        <Comp2/>
+        <Comp3/>
     </div>
   );
 }
