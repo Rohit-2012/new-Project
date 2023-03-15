@@ -3,32 +3,6 @@ import React, { useState } from 'react';
 function TodoList() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [count, setCount] = useState(0)
-
-  const countTask = ()=>{
-    setCount(count+1)
-  }
-
-  const decreaseTask = ()=>{
-    if(count>0){
-        setCount(count-1)
-    }
-  }
-
-  const decreaseTask2 = (index)=>{
-    const newTasks = [...tasks];
-    newTasks[index].completed ? setCount(count+1):setCount(count-1)
-  }
-
-  const handleBoth1 = (index,task)=>{
-    decreaseTask2(index)
-    handleComplete(index)
-  }
-
-  const handleBoth2 = (index)=>{
-    decreaseTask();
-    handleDelete(index)
-  }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -47,10 +21,10 @@ function TodoList() {
     newTasks.splice(index, 1);
     setTasks(newTasks);
   };
-
+  const pendingTasks = tasks.filter((task) => !task.completed);
   return (
     <>
-      <h1 style={{paddingTop:10, position: 'sticky', top:0, backgroundColor: 'rgb(59, 53, 53)', width:'100%', textAlign: 'center'}}>Pending Tasks ({count})</h1>
+      <h1 style={{paddingTop:10, position: 'sticky', top:0, backgroundColor: 'rgb(59, 53, 53)', width:'100%', textAlign: 'center'}}>Pending Tasks ({pendingTasks.length})</h1>
         {tasks.map((task, index) => (
           <li className='listItem'
             key={index}
@@ -58,8 +32,8 @@ function TodoList() {
           >
             <div style={{fontSize:20, overflowWrap: 'break-word', inlineSize: 176}}>{task.text}</div>
             <div>
-                <button onClick={() => handleBoth1(index,task)}  className='btnDiv'>Complete</button>
-            <button onClick={() => handleBoth2(index)} className='btnDiv'>Delete</button>
+                <button onClick={() => handleComplete(index,task)}  className='btnDiv'>Complete</button>
+            <button onClick={() => handleDelete(index)} className='btnDiv'>Delete</button>
             </div>
           </li>
         ))}
@@ -69,7 +43,7 @@ function TodoList() {
           value={newTask}
           onChange={e => setNewTask(e.target.value)}
         />
-        <button style={{margin : 10, padding:10, backgroundColor: 'peru', border:'none', borderRadius: 5, color: 'white'}} type="submit" onClick={countTask}>Submit</button>
+        <button style={{margin : 10, padding:10, backgroundColor: 'peru', border:'none', borderRadius: 5, color: 'white'}} type="submit">Submit</button>
       </form>
     </>
   );
