@@ -5,18 +5,14 @@ import {Component3} from './component/component3'
 
 function App() {
   return (
-    <>
-    <div className="App">
+    <div className='mainBox'>
       <Component1/>
-    </div>
-    <div>
-    <Component2/>
-    </div>
-    <div>
+      <Component2/>
+    <div className='formBox'>
     <Component3/>
     </div>
       
-    </>
+    </div>
   );
 }
 

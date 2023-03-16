@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(219, 230, 240);
+}
+.mainBox {
+  display: flex;
+  flex-direction: column;
+}
+.formBox {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 2px 0 3px rgb(175, 172, 172);
+  background-color: white;
+  margin: 30px auto;
+  padding: 20px;
+  height: 650px;
+  width: 600px;
+}
