@@ -1,4 +1,5 @@
 import {Profiles} from './Components/horizontal-Scroller'
+import Board from './Components/board';
 import './App.css';
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
         )
       })}
       </div>
+      </div>
+      <div>
+        <Board/>
       </div>
     </div>
   );
