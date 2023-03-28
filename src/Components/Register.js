@@ -2,7 +2,7 @@ import Navbar  from './Navbar';
 import styles from '../CSS/Login.module.css'
 import { MdAccountCircle } from "react-icons/md";
 
-export default function Login(){
+export default function Register(){
     return(
         <div className={styles.mainBox}>
             <Navbar/>
