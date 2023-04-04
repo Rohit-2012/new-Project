@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-// import { useState } from "react"
+import { useState } from "react"
 import {useRecoilState} from 'recoil'
 import { dataAtom, taskListAtom } from "./Atom"
 
 export function Home() {
-    const [data , setData] = useRecoilState(dataAtom)
+    const [data , setData] = useState('')
   const [addTask, setAddTask] = useRecoilState(taskListAtom);
 
   function handleChange(e) {
