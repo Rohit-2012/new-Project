@@ -1,25 +1,94 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import styles from './App.module.css'
 
-function App() {
+export default function App() {
+    const [ans,setAns]= useState([]);
+
+
+    function mouseOverh1(){
+       
+
+        setAns([...ans,{ 
+        tag : "h1",
+        event: "in",
+        ontime : new Date().toLocaleTimeString()}])
+    }
+
+    function mouseOverh2(){
+        
+        setAns([...ans, { 
+        tag : "h2",
+        event: "in",
+        ontime : new Date().toLocaleTimeString()}])
+    }
+
+    function mouseOverdiv(){
+        
+        setAns([...ans, {
+        tag : "div",
+        event: "in",
+        ontime : new Date().toLocaleTimeString()}])
+    }
+
+    function mouseOuth1(){
+        
+        setAns([...ans, {
+        tag : "h1",
+        event: "out",
+        ontime : new Date().toLocaleTimeString()}])
+    }
+
+    function mouseOuth2(){
+        
+        setAns([...ans, {
+        tag : "h2",
+        event: "out",
+        ontime : new Date().toLocaleTimeString()}])
+    }
+
+    function mouseOutdiv(){
+        
+        setAns([...ans, {
+        tag : "div",
+        event: "out",
+        ontime : new Date().toLocaleTimeString()}])
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div className = {styles.parentCont}>
+        <div className ={styles.tag}>
+            <h1 onMouseOver={mouseOverh1} onMouseOut={mouseOuth1} className = {styles.h1}>h1</h1>
+            <h2 onMouseOver={mouseOverh2} onMouseOut={mouseOuth2} className = {styles.h2}>h2</h2>
+            <div onMouseOver={mouseOverdiv} onMouseOut={mouseOutdiv} className = {styles.div}>div</div>
+        </div>
+        <table className = {styles.table}>
+            <thead>          
+                <tr>
+                    <th className={styles.th}>Tag_Name</th>
+                    <th>Event_Name</th>
+                    <th>Time</th>
+                </tr>
 
-export default App;
+            </thead> 
+
+            <tbody>
+
+                {ans.map((element,key)=>{
+                    return(
+                        <tr key = {key}>
+                            <td>{element.tag}</td>
+                            <td>{element.event}</td>
+                            <td>{element.ontime}</td>
+                        </tr>
+                    )
+                })}
+
+            </tbody> 
+
+            
+     
+        </table>
+
+    </div>
+  )
+}
