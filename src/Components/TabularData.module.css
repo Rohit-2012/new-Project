@@ -1,0 +1,16 @@
+.mainBox{
+    border: 1px solid black;
+    margin: 1rem;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: rgb(87, 155, 233);
+    color: white;
+}
+
+th, td{
+    padding: 0 2rem;
+    height: 5rem;
+    border: 1px solid black;
+}
